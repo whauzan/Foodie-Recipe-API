@@ -1,7 +1,6 @@
 package food
 
 import (
-	"miniproject/business/food"
 	"miniproject/business/foodAPI"
 )
 

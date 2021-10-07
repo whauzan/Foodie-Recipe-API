@@ -1,4 +1,4 @@
-package FoodAPI
+package foodAPI
 
 type Domain struct {
 	ID int
@@ -12,5 +12,5 @@ type Domain struct {
 }
 
 type Repository interface {
-	GetRecipeAPI(name string) ([]Domain, error)
+	GetFoodAPI(name string) ([]*Domain, error)
 }

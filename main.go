@@ -5,7 +5,6 @@ import (
 
 	_apiRepo "miniproject/repository/database/OpenAPI/Spoonacular"
 	_routes "miniproject/app/routes"
-	_foodAPIHandler "miniproject/app/presenter/foodAPI"
 	_dbDriver "miniproject/repository/SQL"
 	_foodService "miniproject/business/food"
 	_foodHandler "miniproject/app/presenter/food"
@@ -49,13 +48,11 @@ func main() {
 	e := echo.New()
 
 	apiRepo := _apiRepo.NewFoodAPI()
-	foodAPIHandler := _foodAPIHandler.NewFoodAPIHandler(apiRepo)
 	foodRepo := _foodRepo.NewRepositoryMySQL(db)
 	foodService := _foodService.NewService(foodRepo, apiRepo)
 	foodHandler := _foodHandler.NewFoodHandler(foodService)
 
 	routesInit := _routes.HandlerList{
-		FoodAPIHandler: *foodAPIHandler,
 		FoodHandler:    *foodHandler,
 	}
 

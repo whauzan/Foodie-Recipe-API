@@ -25,17 +25,6 @@ type RecipeSource struct {
 	} `json:"results"`
 }
 
-type FoodAPI struct {
-	ID          int
-	Name        string
-	Photo       string
-	Summary     string
-	Step        string
-	HealthScore float64
-	DishTypes   string
-	Diets       string
-}
-
 func toListFoodDomain(record *RecipeSource) []*foodAPI.Domain {
 	var tempFood []*foodAPI.Domain
 	var step string
