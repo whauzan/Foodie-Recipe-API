@@ -12,7 +12,9 @@ import (
 	_routes "miniproject/app/routes"
 	_apiRepo "miniproject/repository/database/OpenAPI/Spoonacular"
 	_foodAPIHandler "miniproject/app/presenter/foodAPI"
-
+	_foodService "miniproject/business/food"
+	_foodHandler "miniproject/app/presenter/food"
+	_foodRepo "miniproject/repository/database/food"
 	"github.com/labstack/echo/v4"
 	"github.com/spf13/viper"
 	"gorm.io/gorm"
@@ -34,6 +36,7 @@ func init() {
 func dbMigrate(db *gorm.DB) {
 	db.AutoMigrate(
 		&_userRepo.User{},
+		&_foodRepo.Food{},
 	)
 }
 
@@ -60,11 +63,15 @@ func main() {
 	userService := _userService.NewUserService(userRepo, 10, &configJWT)
 	userHandler := _userHandler.NewUserHandler(userService)
 	apiRepo := _apiRepo.NewFoodAPI()
+	foodRepo := _foodRepo.NewRepositoryMySQL(db)
+	foodService := _foodService.NewService(foodRepo, apiRepo)
+	foodHandler := _foodHandler.NewFoodHandler(foodService)
 	foodAPIHandler := _foodAPIHandler.NewFoodAPIHandler(apiRepo)
 
 	routesInit := _routes.HandlerList{
 		UserHandler: *userHandler,
 		FoodAPIHandler: *foodAPIHandler,
+		FoodHandler:    *foodHandler,
 	}
 
 	routesInit.RouteRegister(e)
