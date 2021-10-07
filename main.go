@@ -10,6 +10,8 @@ import (
 	_dbDriver "miniproject/repository/SQL"
 	_middleware "miniproject/app/middleware"
 	_routes "miniproject/app/routes"
+	_apiRepo "miniproject/repository/database/OpenAPI/Spoonacular"
+	_foodAPIHandler "miniproject/app/presenter/foodAPI"
 
 	"github.com/labstack/echo/v4"
 	"github.com/spf13/viper"
@@ -57,9 +59,12 @@ func main() {
 	userRepo := _driverFactory.NewUserRepository(db)
 	userService := _userService.NewUserService(userRepo, 10, &configJWT)
 	userHandler := _userHandler.NewUserHandler(userService)
+	apiRepo := _apiRepo.NewFoodAPI()
+	foodAPIHandler := _foodAPIHandler.NewFoodAPIHandler(apiRepo)
 
 	routesInit := _routes.HandlerList{
 		UserHandler: *userHandler,
+		FoodAPIHandler: *foodAPIHandler,
 	}
 
 	routesInit.RouteRegister(e)
