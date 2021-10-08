@@ -55,14 +55,8 @@ func (service *UserService) Login(usrname, passwd string) (Domain, error) {
 	}
 	valid := encrypt.CheckPasswordHash(passwd, usr.Password)
 	if !valid {
-		return Domain{}, business.ErrwrongPasswd
-	}
-	if err != nil {
-		return Domain{}, err
+		return Domain{}, business.ErrUser
 	}
 	usr.Token = service.jwtAuth.GenerateToken(usr.ID, "user")
-	if err != nil {
-		return Domain{}, err
-	}
 	return usr, nil
 }
