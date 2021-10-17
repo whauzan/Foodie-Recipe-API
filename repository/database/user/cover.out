@@ -1,0 +1,10 @@
+mode: set
+miniproject/repository/database/user/mysql.go:13.60,17.2 1 1
+miniproject/repository/database/user/mysql.go:19.94,23.25 3 0
+miniproject/repository/database/user/mysql.go:27.2,27.29 1 0
+miniproject/repository/database/user/mysql.go:23.25,25.3 1 0
+miniproject/repository/database/user/mysql.go:30.84,34.25 3 1
+miniproject/repository/database/user/mysql.go:38.2,38.29 1 0
+miniproject/repository/database/user/mysql.go:34.25,36.3 1 1
+miniproject/repository/database/user/record.go:21.39,34.2 1 0
+miniproject/repository/database/user/record.go:36.42,49.2 1 1
