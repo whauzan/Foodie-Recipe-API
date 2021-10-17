@@ -1,0 +1,20 @@
+mode: set
+miniproject/business/user/service.go:16.100,22.2 1 1
+miniproject/business/user/service.go:24.70,25.27 1 1
+miniproject/business/user/service.go:28.2,28.24 1 1
+miniproject/business/user/service.go:31.2,31.27 1 1
+miniproject/business/user/service.go:34.2,38.16 4 1
+miniproject/business/user/service.go:41.2,41.17 1 1
+miniproject/business/user/service.go:25.27,27.3 1 1
+miniproject/business/user/service.go:28.24,30.3 1 1
+miniproject/business/user/service.go:31.27,33.3 1 1
+miniproject/business/user/service.go:38.16,40.3 1 0
+miniproject/business/user/service.go:44.75,45.19 1 1
+miniproject/business/user/service.go:48.2,48.18 1 1
+miniproject/business/user/service.go:52.2,53.16 2 1
+miniproject/business/user/service.go:56.2,57.12 2 1
+miniproject/business/user/service.go:60.2,61.17 2 1
+miniproject/business/user/service.go:45.19,47.3 1 1
+miniproject/business/user/service.go:48.18,50.3 1 1
+miniproject/business/user/service.go:53.16,55.3 1 0
+miniproject/business/user/service.go:57.12,59.3 1 1
